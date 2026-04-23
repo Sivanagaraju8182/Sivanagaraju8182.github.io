@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thank You</title>
+
+<style>
+body{
+  margin:0;
+  font-family:'Segoe UI',sans-serif;
+  background:linear-gradient(135deg,#0b0f1a,#111827);
+  color:white;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  height:100vh;
+  overflow:hidden;
+}
+
+/* CARD */
+.card{
+  background:rgba(17,24,39,0.9);
+  padding:50px;
+  border-radius:20px;
+  text-align:center;
+  box-shadow:0 0 40px rgba(240,192,64,0.3);
+  animation:fadeIn 1s ease;
+}
+
+/* ICON */
+.icon{
+  font-size:60px;
+  margin-bottom:20px;
+  animation:pop 0.6s ease;
+}
+
+/* TEXT */
+h1{
+  color:#f0c040;
+  margin-bottom:10px;
+}
+
+p{
+  color:#ccc;
+  margin:10px 0;
+  font-size:16px;
+}
+
+/* BUTTON */
+a{
+  display:inline-block;
+  margin-top:20px;
+  padding:12px 24px;
+  background:#f0c040;
+  color:black;
+  text-decoration:none;
+  border-radius:8px;
+  font-weight:bold;
+  transition:0.3s;
+}
+
+a:hover{
+  transform:scale(1.05);
+  box-shadow:0 0 20px #f0c040;
+}
+
+/* ANIMATIONS */
+@keyframes fadeIn{
+  from{opacity:0; transform:translateY(20px);}
+  to{opacity:1; transform:translateY(0);}
+}
+
+@keyframes pop{
+  0%{transform:scale(0);}
+  100%{transform:scale(1);}
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="card">
+  <div class="icon">🎉</div>
+  <h1>Thank You!</h1>
+
+  <p id="msg"></p>
+
+  <p>
+    I truly appreciate your interest and will get back to you shortly.<br>
+    Looking forward to collaborating with your team!
+  </p>
+
+<a href="index.html">⬅ Back to Portfolio</a>
+
+</div>
+
+<script>
+// Get HR name
+const params = new URLSearchParams(window.location.search);
+const name = params.get("name");
+
+// Custom message
+document.getElementById("msg").innerText =
+  name 
+  ? `Thank you ${name} sir for showing interest in me!`
+  : "Thank you for reaching out!";
+
+// Auto redirect after 6 seconds
+setTimeout(()=>{
+  window.location.href="index.html";
+},6000);
+</script>
+
+</body>
+</html>
