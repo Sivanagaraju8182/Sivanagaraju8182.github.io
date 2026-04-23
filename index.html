@@ -964,16 +964,44 @@ footer{background:var(--bg2);border-top:1px solid var(--bord2);padding:26px 56px
       </div>
     </div>
 
-    <div class="cright rvr">
-      <div class="ctitle">Send Me a Message 👋</div>
-      <div class="fg"><label class="fl">Your Name</label><input type="text" class="fi" placeholder="HR / Recruiter / Tech Lead Name"></div>
-      <div class="fg"><label class="fl">Company Name</label><input type="text" class="fi" placeholder="Company / Startup Name"></div>
-      <div class="fg"><label class="fl">Email Address</label><input type="email" class="fi" placeholder="hr@company.com"></div>
-      <div class="fg"><label class="fl">Role Offering</label><input type="text" class="fi" placeholder="e.g. Junior Full Stack Developer"></div>
-      <div class="fg"><label class="fl">Message</label><textarea class="fta" placeholder="Hi Sivanagaraju! We'd love to have you join our team for the role of..."></textarea></div>
-      <button class="fsub" onclick="handleSubmit(this)">🚀 Send Message</button>
-    </div>
+
+
+  <form action="https://formsubmit.co/sivanagarajuadipudi4@gmail.com" method="POST" class="cright rvr">
+
+  <div class="ctitle">Send Me a Message 👋</div>
+
+  <div class="fg">
+    <label class="fl">Your Name</label>
+    <input type="text" name="name" class="fi" placeholder="HR / Recruiter Name" required>
   </div>
+
+  <div class="fg">
+    <label class="fl">Company Name</label>
+    <input type="text" name="company" class="fi" placeholder="Company Name">
+  </div>
+
+  <div class="fg">
+    <label class="fl">Email Address</label>
+    <input type="email" name="email" class="fi" placeholder="hr@company.com" required>
+  </div>
+
+  <div class="fg">
+    <label class="fl">Role Offering</label>
+    <input type="text" name="role" class="fi" placeholder="Frontend / Backend / Full Stack">
+  </div>
+
+  <div class="fg">
+    <label class="fl">Message</label>
+    <textarea name="message" class="fta" placeholder="Hi Sivanagaraju! We'd like to hire you..." required></textarea>
+  </div>
+
+  <!-- Hidden settings -->
+  <input type="hidden" name="_captcha" value="false">
+  <input type="hidden" name="_subject" value="New Job Opportunity from Portfolio">
+
+  <button type="submit" class="fsub">🚀 Send Message</button>
+
+</form>
 </section>
 
 <!-- FOOTER -->
