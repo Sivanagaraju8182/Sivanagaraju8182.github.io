@@ -402,31 +402,38 @@ footer{background:var(--bg2);border-top:1px solid var(--bord2);padding:26px 56px
 
   <!-- PHOTO CARD -->
   <div class="phr">
-    <div class="pframe">
-      <div class="pcorner pc-tl"></div>
-      <div class="pcorner pc-br"></div>
-      <div class="parea" id="PAREA" onclick="document.getElementById('PINPUT').click()">
-        <img id="PIMG" src="" alt="Adipudi Sivanagaraju">
-        <div class="uprompt" id="UPROMPT">
-          <div class="uico">👤</div>
-          <div class="utxt">Add Your Photo</div>
-          <div class="uhint">Click to upload your picture</div>
-          <label class="ulbl" onclick="event.stopPropagation();document.getElementById('PINPUT').click()">📷 Upload Photo</label>
-        </div>
-      </div>
-      <div class="ftag ft1"><span class="fd dg"></span>Available Now</div>
-      <div class="ftag ft2"><span class="fd dc"></span>React + Python</div>
-      <div class="ftag ft3"><span class="fd db"></span>CGPA 8.88</div>
-      <div class="pbadge">
-        <div class="pba">👨‍💻</div>
-        <div>
-          <span class="pbn">Adipudi Sivanagaraju</span>
-          <span class="pbr2">Full Stack Dev · 2026 Batch · SRGEC</span>
-        </div>
+  <div class="pframe">
+    
+    <div class="pcorner pc-tl"></div>
+    <div class="pcorner pc-br"></div>
+
+    <!-- IMAGE AREA -->
+    <div class="parea" id="PAREA">
+
+      <!-- DEFAULT PHOTO -->
+      <img id="PIMG" 
+           src="profile.jpg" 
+           alt="Adipudi Sivanagaraju"
+           style="width:100%; height:100%; object-fit:cover; border-radius:20px; display:block;">
+
+    </div>
+
+    <!-- TAGS -->
+    <div class="ftag ft1"><span class="fd dg"></span>Available Now</div>
+    <div class="ftag ft2"><span class="fd dc"></span>React + Python</div>
+    <div class="ftag ft3"><span class="fd db"></span>CGPA 8.88</div>
+
+    <!-- BADGE -->
+    <div class="pbadge">
+      <div class="pba">👨‍💻</div>
+      <div>
+        <span class="pbn">Adipudi Sivanagaraju</span>
+        <span class="pbr2">Full Stack Dev · 2026 Batch · SRGEC</span>
       </div>
     </div>
+
   </div>
-</section>
+</div></section>
 
 <!-- ═══════ ABOUT ═══════ -->
 <section id="about" class="alt">
