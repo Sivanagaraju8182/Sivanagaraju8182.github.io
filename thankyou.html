@@ -1,118 +1,245 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Thank You</title>
-
+<title>Thank You | Adipudi Sivanagaraju</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --bg:#020b0e;--card:#071419;--card2:#0a1c23;
+  --g1:#00ffe1;--g2:#00c9b1;--g3:#0ea5e9;
+  --text:#e0f7f4;--sub:#3d8a80;--bord2:rgba(255,255,255,.06);
+}
+html{scroll-behavior:smooth;}
 body{
-  margin:0;
-  font-family:'Segoe UI',sans-serif;
-  background:linear-gradient(135deg,#0b0f1a,#111827);
-  color:white;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  height:100vh;
-  overflow:hidden;
+  margin:0;font-family:'DM Sans',sans-serif;
+  background:var(--bg);color:var(--text);
+  display:flex;justify-content:center;align-items:center;
+  min-height:100vh;overflow:hidden;padding:20px;
 }
 
-/* CARD */
+/* Background grid */
+.bg-grid{
+  position:fixed;inset:0;
+  background-image:
+    linear-gradient(rgba(0,255,225,.015) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(0,255,225,.015) 1px,transparent 1px);
+  background-size:60px 60px;
+  mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,black 30%,transparent 100%);
+  pointer-events:none;
+}
+.bg-mesh{
+  position:fixed;inset:0;
+  background:
+    radial-gradient(ellipse 50% 55% at 30% 30%,rgba(0,255,225,.05),transparent),
+    radial-gradient(ellipse 40% 50% at 75% 70%,rgba(14,165,233,.04),transparent);
+  pointer-events:none;
+}
+
+/* Card */
 .card{
-  background:rgba(17,24,39,0.9);
-  padding:50px;
+  background:var(--card);
+  border:1px solid var(--bord2);
   border-radius:20px;
+  padding:52px 48px;
+  max-width:500px;
+  width:100%;
   text-align:center;
-  box-shadow:0 0 40px rgba(240,192,64,0.3);
-  animation:fadeIn 1s ease;
+  position:relative;
+  z-index:2;
+  animation:fadeUp .7s ease both;
+  box-shadow:0 32px 64px rgba(0,0,0,.5);
+}
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(28px);}
+  to{opacity:1;transform:translateY(0);}
 }
 
-/* ICON */
-.icon{
-  font-size:60px;
-  margin-bottom:20px;
-  animation:pop 0.6s ease;
+/* Top accent line */
+.card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,var(--g1),var(--g3));
+  border-radius:20px 20px 0 0;
 }
 
-/* TEXT */
-h1{
-  color:#f0c040;
-  margin-bottom:10px;
+/* Icon circle */
+.icon-wrap{
+  width:72px;height:72px;border-radius:50%;
+  background:linear-gradient(135deg,rgba(0,255,225,.12),rgba(14,165,233,.08));
+  border:1px solid rgba(0,255,225,.22);
+  display:flex;align-items:center;justify-content:center;
+  margin:0 auto 24px;
+  font-size:2rem;
+  animation:pop .6s .2s ease both;
 }
-
-p{
-  color:#ccc;
-  margin:10px 0;
-  font-size:16px;
-}
-
-/* BUTTON */
-a{
-  display:inline-block;
-  margin-top:20px;
-  padding:12px 24px;
-  background:#f0c040;
-  color:black;
-  text-decoration:none;
-  border-radius:8px;
-  font-weight:bold;
-  transition:0.3s;
-}
-
-a:hover{
-  transform:scale(1.05);
-  box-shadow:0 0 20px #f0c040;
-}
-
-/* ANIMATIONS */
-@keyframes fadeIn{
-  from{opacity:0; transform:translateY(20px);}
-  to{opacity:1; transform:translateY(0);}
-}
-
 @keyframes pop{
-  0%{transform:scale(0);}
-  100%{transform:scale(1);}
+  0%{transform:scale(0);opacity:0;}
+  70%{transform:scale(1.1);}
+  100%{transform:scale(1);opacity:1;}
+}
+
+/* Heading */
+h1{
+  font-family:'Syne',sans-serif;
+  font-size:clamp(1.7rem,4vw,2.2rem);
+  font-weight:800;
+  letter-spacing:-1px;
+  background:linear-gradient(125deg,var(--g1),var(--g3));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  margin-bottom:12px;
+  animation:fadeUp .6s .3s ease both;
+}
+
+/* Message */
+#msg{
+  font-size:1rem;font-weight:600;
+  color:var(--text);margin-bottom:10px;
+  animation:fadeUp .6s .35s ease both;
+  line-height:1.5;
+}
+
+p.sub{
+  color:var(--sub);font-size:.88rem;
+  line-height:1.75;margin-bottom:28px;
+  animation:fadeUp .6s .4s ease both;
+}
+
+/* Progress bar for redirect */
+.redirect-bar{
+  background:var(--card2);border:1px solid var(--bord2);
+  border-radius:100px;height:4px;overflow:hidden;
+  margin-bottom:24px;
+  animation:fadeUp .6s .45s ease both;
+}
+.redirect-fill{
+  height:100%;width:0%;
+  background:linear-gradient(90deg,var(--g1),var(--g3));
+  border-radius:100px;
+  transition:width 6s linear;
+}
+
+.redirect-note{
+  font-size:.75rem;color:var(--sub);
+  margin-bottom:28px;
+  animation:fadeUp .6s .48s ease both;
+}
+
+/* Button */
+.btn-back{
+  display:inline-flex;align-items:center;gap:8px;
+  background:linear-gradient(135deg,var(--g1),var(--g2));
+  color:#000;padding:12px 28px;border-radius:8px;
+  font-weight:700;font-size:.88rem;text-decoration:none;
+  transition:all .25s;
+  animation:fadeUp .6s .5s ease both;
+}
+.btn-back:hover{
+  transform:translateY(-2px);
+  box-shadow:0 10px 28px rgba(0,255,225,.3);
+}
+
+/* Divider */
+.divider{
+  height:1px;background:var(--bord2);
+  margin:28px 0;
+  animation:fadeUp .6s .52s ease both;
+}
+
+/* Links row */
+.links-row{
+  display:flex;justify-content:center;gap:12px;flex-wrap:wrap;
+  animation:fadeUp .6s .55s ease both;
+}
+.pill-link{
+  display:inline-flex;align-items:center;gap:6px;
+  background:var(--card2);border:1px solid var(--bord2);
+  color:var(--sub);padding:7px 16px;border-radius:100px;
+  text-decoration:none;font-size:.76rem;font-weight:600;
+  transition:all .25s;
+}
+.pill-link:hover{border-color:rgba(0,255,225,.3);color:var(--g1);}
+
+/* Badge */
+.badge{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(0,255,225,.05);border:1px solid rgba(0,255,225,.15);
+  padding:6px 16px;border-radius:100px;
+  font-size:.72rem;font-weight:600;color:var(--g1);
+  margin-bottom:20px;
+  animation:fadeUp .6s .25s ease both;
+}
+.bdot{
+  width:6px;height:6px;background:var(--g1);border-radius:50%;
+  animation:pulse 2s infinite;
+}
+@keyframes pulse{
+  0%,100%{opacity:1;box-shadow:0 0 6px var(--g1);}
+  50%{opacity:.3;box-shadow:none;}
+}
+
+@media(max-width:520px){
+  .card{padding:40px 24px;}
 }
 </style>
-
 </head>
-
 <body>
 
+<div class="bg-grid"></div>
+<div class="bg-mesh"></div>
+
 <div class="card">
-  <div class="icon">🎉</div>
+  <div class="icon-wrap">&#10003;</div>
+
+  <div class="badge"><span class="bdot"></span>Message Received</div>
+
   <h1>Thank You!</h1>
 
-  <p id="msg"></p>
+  <p id="msg">Thank you for reaching out.</p>
 
-  <p>
-    I truly appreciate your interest and will get back to you shortly.<br>
-    Looking forward to collaborating with your team!
+  <p class="sub">
+    I appreciate your interest and will get back to you as soon as possible.<br>
+    Looking forward to the opportunity to connect with your team.
   </p>
 
-<a href="index.html">⬅ Back to Portfolio</a>
+  <div class="redirect-bar">
+    <div class="redirect-fill" id="RFILL"></div>
+  </div>
+  <p class="redirect-note">Redirecting you back to the portfolio in 6 seconds...</p>
 
+  <a href="index.html" class="btn-back">Back to Portfolio</a>
+
+  <div class="divider"></div>
+
+  <div class="links-row">
+    <a href="https://linkedin.com/in/adipudi-sivanagaraju-8bb9812ba" target="_blank" rel="noopener" class="pill-link">LinkedIn</a>
+    <a href="https://github.com/Sivanagaraju8182" target="_blank" rel="noopener" class="pill-link">GitHub</a>
+    <a href="mailto:sivanagarajuadipudi4@gmail.com" class="pill-link">Email</a>
+  </div>
 </div>
 
 <script>
-// Get HR name
+// Personalized message from form query param
 const params = new URLSearchParams(window.location.search);
-const name = params.get("name");
+const name = params.get('name');
+const msgEl = document.getElementById('msg');
+if(name && name.trim()){
+  msgEl.textContent = 'Thank you, ' + name.trim() + ', for showing interest in my profile!';
+} else {
+  msgEl.textContent = 'Thank you for reaching out — I will get back to you shortly.';
+}
 
-// Custom message
-document.getElementById("msg").innerText =
-  name 
-  ? `Thank you ${name} sir for showing interest in me!`
-  : "Thank you for reaching out!";
+// Start redirect fill bar
+setTimeout(()=>{
+  document.getElementById('RFILL').style.width = '100%';
+}, 100);
 
 // Auto redirect after 6 seconds
 setTimeout(()=>{
-  window.location.href="index.html";
-},6000);
+  window.location.href = 'index.html';
+}, 6000);
 </script>
-
 </body>
 </html>
